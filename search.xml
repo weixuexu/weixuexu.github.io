@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[JVM学习]]></title>
+    <url>%2F2019%2F01%2F24%2F%E7%B1%BB%E5%8A%A0%E8%BD%BD%2F</url>
+    <content type="text"><![CDATA[一、类加载类加载就是读取.class文件，在方法区生成对应的二进制数据文件，同时会在堆中产生Class对象作为数据文件的入口。 类被初始化的时机 遇到字节码命令 new getstatic publicstatic invokestatic会对类进行初始化。对应的java操作:使用new关键字实例化对象 读取或设置类的静态字段(被final修饰的除外，因为在编译器已经把结果放入了常量池) 调用类的静态方法(大概理解就是需要通过静态类拿到的数据都会初始化，final修饰的已经在常量池，不需要通过静态类来获取数据了) 使用反射调用时，如果类没被初始化，需要先初始化 初始化子类的时候，如果父类未初始化，会优先初始化父类 虚拟机启动，执行的主类(包含main方法的) 当使用jdk1.7动态语言支持时，如果一个java.lang.invoke.MethodHandle实例最后的解析结果REF_getstatic,REF_putstatic,REF_invokeStatic的方法句柄，并且这个方法句柄所对应的类没有进行初始化，则需要先出触发其初始化。 new String[] 是对Ljava.lang.String的初始化，而直接不会触发String类的初始化 有哪些加载.class文件的方式(根据类加载器来) 从本地系统中直接加载 通过网络下载.class文件 从zip，jar等归档文件中加载.class文件 从专有数据库中提取.class文件 将Java源文件动态编译为.class文件 类被加载之后的生命周期是怎样的 加载: 1.通过类的全限定名获取二进制字节流 2.将字节流所代表的静态存储结构转换为方法区的数据结构 3.在java堆中生成java.lang.Class对象,作为访问方法区数据的入口 验证: 1. .class的文件格式规范验证，主次版本号验证 2. 对字节码描述的信息进行语义分析（注意：对比javac编译阶段的语义分析），以保证其描述的信息符合Java语言规范的要求；例如：这个类是否有父类，除了 java.lang.Object之外。3.通过数据流和控制流分析，确定程序语义是合法的、符合逻辑的。4.确保解析动作能正确执行。 准备: 类加载器 加载机制 类的加载方式 能否在加载类的时候，对类的字节码进行修改 java agent类加载问题 可以不可以自己写个String类（双亲委任） 加载类时进行修改(java agent) 初始化 加载的概念]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>JVM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[第一天]]></title>
+    <url>%2F2019%2F01%2F24%2F%E7%AC%AC%E4%B8%80%E5%A4%A9%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>分类</category>
+      </categories>
+      <tags>
+        <tag>测试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <url>%2F2019%2F01%2F24%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+  </entry>
+</search>
